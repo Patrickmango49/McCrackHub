@@ -82,7 +82,7 @@ function setToggle(btn,on){btn.classList.toggle('on',on);btn.setAttribute('aria-
 $('#compactToggle').addEventListener('click',e=>{const on=!e.currentTarget.classList.contains('on');setToggle(e.currentTarget,on);document.body.classList.toggle('compact',on)});
 $('#motionToggle').addEventListener('click',e=>{const on=!e.currentTarget.classList.contains('on');setToggle(e.currentTarget,on);document.body.classList.toggle('reduce-motion',on)});
 $$('.swatch').forEach(btn=>btn.addEventListener('click',()=>{$$('.swatch').forEach(s=>s.classList.toggle('active',s===btn));document.documentElement.style.setProperty('--accent',btn.dataset.color);document.documentElement.style.setProperty('--accent-rgb',btn.dataset.rgb);state.accent=btn.dataset.color;state.rgb=btn.dataset.rgb}));
-$('#resetSettings').addEventListener('click',()=>{document.documentElement.style.setProperty('--accent','#00d5ff');document.documentElement.style.setProperty('--accent-rgb','0,213,255');$('.swatch').forEach(s=>s.classList.toggle('active',s.dataset.color==='#00d5ff'));setToggle($('#compactToggle'),false);setToggle($('#motionToggle'),false);document.body.classList.remove('compact','reduce-motion');toast('Appearance settings reset')});
+$('#resetSettings').addEventListener('click',()=>{document.documentElement.style.setProperty('--accent','#00d5ff');document.documentElement.style.setProperty('--accent-rgb','0,213,255');$$('.swatch').forEach(s=>s.classList.toggle('active',s.dataset.color==='#00d5ff'));setToggle($('#compactToggle'),false);setToggle($('#motionToggle'),false);document.body.classList.remove('compact','reduce-motion');toast('Appearance settings reset')});
 $('#datePill').textContent='YOUR HUB · '+new Date().getFullYear();
 render();
 </script></body></html>
